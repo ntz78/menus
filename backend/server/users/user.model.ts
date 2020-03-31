@@ -54,10 +54,10 @@ class UserClass {
     return this.hash === hash;
   }
 
-  // Generate access token for 30 minutes
+  // Generate access token for 1 month
   public generateJwt(): { token: string; expiry: Date } {
     const expiry = new Date();
-    expiry.setMinutes(expiry.getMinutes() + 30);
+    expiry.setUTCMonth(expiry.getUTCMonth() + 1);
 
     const token = sign({
       _id: this.id,
